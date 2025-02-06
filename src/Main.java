@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,66 +6,48 @@ public class Main {
         StudentManager manager = new StudentManager();
 
         while (true) {
-            System.out.println("\n===== Student Grade Manager =====");
-            System.out.println("1️⃣ Add Student");
-            System.out.println("2️⃣ View All Students");
-            System.out.println("3️⃣ Search Student by Roll No");
-            System.out.println("4️⃣ Remove Student");
-            System.out.println("5️⃣ Exit");
-            System.out.print("Choose an option: ");
-            
+            System.out.println("\nStudent Grade Manager");
+            System.out.println("1. Add Student");
+            System.out.println("2. View All Students");
+            System.out.println("3. Search Student by Roll No");
+            System.out.println("4. Remove Student");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
             int choice = scanner.nextInt();
-            scanner.nextLine();  
+            scanner.nextLine(); // Consume newline
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter Roll No: ");
                     int rollNo = scanner.nextInt();
-                    scanner.nextLine();
-
+                    scanner.nextLine(); // Consume newline
                     System.out.print("Enter Name: ");
                     String name = scanner.nextLine();
-
-                    Map<String, Integer> subjects = new HashMap<>();
-                    System.out.print("Enter number of subjects: ");
-                    int numSubjects = scanner.nextInt();
-                    scanner.nextLine();
-
-                    for (int i = 0; i < numSubjects; i++) {
-                        System.out.print("Enter Subject Name: ");
-                        String subject = scanner.nextLine();
-                        System.out.print("Enter Marks: ");
-                        int marks = scanner.nextInt();
-                        scanner.nextLine();
-                        subjects.put(subject, marks);
-                    }
-
-                    manager.addStudent(rollNo, name, subjects);
+                    System.out.print("Enter Grade: ");
+                    String grade = scanner.nextLine();
+                    manager.addStudent(new Student(rollNo, name, grade));
                     break;
-
                 case 2:
-                    manager.displayAllStudents();
+                    manager.viewAllStudents();
                     break;
-
                 case 3:
-                    System.out.print("Enter Roll No to Search: ");
-                    int searchRoll = scanner.nextInt();
-                    manager.searchStudent(searchRoll);
+                    System.out.print("Enter Roll No to search: ");
+                    int searchRollNo = scanner.nextInt();
+                    manager.searchStudent(searchRollNo);
                     break;
-
                 case 4:
-                    System.out.print("Enter Roll No to Remove: ");
-                    int removeRoll = scanner.nextInt();
-                    manager.removeStudent(removeRoll);
+                    System.out.print("Enter Roll No to remove: ");
+                    int removeRollNo = scanner.nextInt();
+                    manager.removeStudent(removeRollNo);
                     break;
-
                 case 5:
-                    System.out.println("📌 Exiting... Thank you!");
+                    System.out.println("Exiting...");
                     scanner.close();
-                    return;
-
+                    System.exit(0);
+                    break;
                 default:
-                    System.out.println("❌ Invalid option! Please try again.");
+                    System.out.println("Invalid option! Please try again.");
             }
         }
     }
