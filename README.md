@@ -25,13 +25,13 @@ A simple **Java console-based** Student Grade Management System.
    java src.Main
    ```
 **📂 Project Structure**
-Student-Grade-Manager/
-│── src/
-│   ├── Student.java
-│   ├── StudentManager.java
-│   ├── Main.java
-│── .gitignore
-│── README.md
+   Student-Grade-Manager/
+   │── src/
+   │   ├── Student.java
+   │   ├── StudentManager.java
+   │   ├── Main.java
+   │── .gitignore
+   │── README.md
 
 **🔥 Author**
 
