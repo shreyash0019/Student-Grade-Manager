@@ -1,41 +1,28 @@
-import java.util.*;
-
 public class Student {
     private int rollNo;
     private String name;
-    private Map<String, Integer> subjects;
-    private double percentage;
-    private char grade;
+    private String grade;
 
-    public Student(int rollNo, String name, Map<String, Integer> subjects) {
+    public Student(int rollNo, String name, String grade) {
         this.rollNo = rollNo;
         this.name = name;
-        this.subjects = subjects;
-        calculateResults();
+        this.grade = grade;
     }
 
-    private void calculateResults() {
-        int totalMarks = subjects.values().stream().mapToInt(Integer::intValue).sum();
-        int totalSubjects = subjects.size();
-        this.percentage = totalMarks / (double) totalSubjects;
-
-        if (percentage >= 90) grade = 'A';
-        else if (percentage >= 75) grade = 'B';
-        else if (percentage >= 50) grade = 'C';
-        else if (percentage >= 35) grade = 'D';
-        else grade = 'F';
+    public int getRollNo() {
+        return rollNo;
     }
 
-    public int getRollNo() { return rollNo; }
-    public String getName() { return name; }
-    public double getPercentage() { return percentage; }
-    public char getGrade() { return grade; }
+    public String getName() {
+        return name;
+    }
 
-    public void displayStudentInfo() {
-        System.out.println("\nRoll No: " + rollNo);
-        System.out.println("Name: " + name);
-        System.out.println("Subjects & Marks: " + subjects);
-        System.out.println("Percentage: " + percentage + "%");
-        System.out.println("Grade: " + grade);
+    public String getGrade() {
+        return grade;
+    }
+
+    @Override
+    public String toString() {
+        return "Roll No: " + rollNo + ", Name: " + name + ", Grade: " + grade;
     }
 }
