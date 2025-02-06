@@ -1,33 +1,46 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentManager {
-    private List<Student> students = new ArrayList<>();
+    private List<Student> students;
 
-    public void addStudent(int rollNo, String name, Map<String, Integer> subjects) {
-        students.add(new Student(rollNo, name, subjects));
-        System.out.println("✅ Student added successfully!");
+    public StudentManager() {
+        this.students = new ArrayList<>();
     }
 
-    public void displayAllStudents() {
+    public void addStudent(Student student) {
+        students.add(student);
+        System.out.println("Student added successfully!");
+    }
+
+    public void viewAllStudents() {
         if (students.isEmpty()) {
-            System.out.println("⚠️ No students found!");
-            return;
+            System.out.println("No students found!");
+        } else {
+            for (Student student : students) {
+                System.out.println(student);
+            }
         }
-        students.forEach(Student::displayStudentInfo);
     }
 
     public void searchStudent(int rollNo) {
-        for (Student s : students) {
-            if (s.getRollNo() == rollNo) {
-                s.displayStudentInfo();
+        for (Student student : students) {
+            if (student.getRollNo() == rollNo) {
+                System.out.println("Student found: " + student);
                 return;
             }
         }
-        System.out.println("❌ Student with Roll No " + rollNo + " not found!");
+        System.out.println("Student with Roll No " + rollNo + " not found!");
     }
 
     public void removeStudent(int rollNo) {
-        students.removeIf(s -> s.getRollNo() == rollNo);
-        System.out.println("✅ Student removed successfully!");
+        for (Student student : students) {
+            if (student.getRollNo() == rollNo) {
+                students.remove(student);
+                System.out.println("Student removed successfully!");
+                return;
+            }
+        }
+        System.out.println("Student with Roll No " + rollNo + " not found!");
     }
 }
