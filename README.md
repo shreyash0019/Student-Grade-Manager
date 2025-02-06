@@ -8,6 +8,11 @@ A simple **Java console-based** Student Grade Management System.
 - Display all student records.
 - Search for a student by Roll No.
 - Remove student records.
+- ✅ Add new students
+- 📄 View all students
+- 🔍 Search students by roll number
+- ❌ Remove students
+- 🚀 Simple menu-based UI
 
 ## 🛠 Tech Stack
 - **Java** (Core Java, Collections)
@@ -19,3 +24,16 @@ A simple **Java console-based** Student Grade Management System.
    javac src/*.java
    java src.Main
    ```
+**📂 Project Structure**
+Student-Grade-Manager/
+│── src/
+│   ├── Student.java
+│   ├── StudentManager.java
+│   ├── Main.java
+│── .gitignore
+│── README.md
+
+**🔥 Author**
+
+    Shreyash Ingle
+
