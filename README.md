@@ -36,6 +36,4 @@ Student-Grade-Manager/
 ├── README.md
 ```
 
-## 🔥 Author
-**Shreyash Ingle**
 
